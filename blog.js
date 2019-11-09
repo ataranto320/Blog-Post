@@ -1,6 +1,16 @@
+// Dependencies
 var express = require("express");
-var blog = express();
+var path = require("path");
 
-blog.listen(3000, () => {
-    console.log("Server running on port 3000");
+// Set up express app
+var blog = express();
+var PORT = 3000;
+
+// Set up express app to handle data parsing 
+blog.use(express.urlencoded({ extended: true}));
+blog.use(express.json());
+
+// Starts the server to begin listening
+blog.listen(PORT, function() {
+    console.log("Blog listening on PORT " + PORT);
 });
