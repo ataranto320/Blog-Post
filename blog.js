@@ -10,6 +10,22 @@ var PORT = 3000;
 blog.use(express.urlencoded({ extended: true}));
 blog.use(express.json());
 
+// Example Star Wars data
+var characters = [
+    {
+        routeName: "yoda",
+        name: "Yoda",
+        role: "Jedi Master",
+        age: 900
+    },
+    {
+        routeName: "darthvader",
+        name: "Darth Vader",
+        role: "Sith Lord",
+        age: 45
+    }
+]
+
 // Routes
 // Basic route that sends the user first to AJAX Page
 blog.get("/", function(req, res) {
