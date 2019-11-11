@@ -10,7 +10,7 @@ var PORT = 3000;
 blog.use(express.urlencoded({ extended: true}));
 blog.use(express.json());
 
-// Blog posts for Hatchway 
+// Blog posts 
 var posts = [
     {
         id: 1,
@@ -51,12 +51,12 @@ blog.get("/add", function (req, res) {
     res.sendFile(path.join(__dirname, "add.html"));
 });
 
-// Displays all characters
+// Displays all posts
 blog.get("/api/posts", function(req, res) {
     return res.json(posts);
 });
 
-// Displays a single character, or returns false
+// Displays a single post, or returns false
 blog.get("/api/posts/:post", function(req, res) {
     var chosen = req.params.post;
 
@@ -70,7 +70,7 @@ blog.get("/api/posts/:post", function(req, res) {
     return res.json(false);
 });
 
-// Create new characters - takes in json input
+// Create new posts - takes in json input
 blog.post("/api/posts", function(req, res) {
     // req.body hosts is equal to the json post sent from the user
     // this works because of our body parsing middleware
