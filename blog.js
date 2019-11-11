@@ -10,70 +10,80 @@ var PORT = 3000;
 blog.use(express.urlencoded({ extended: true}));
 blog.use(express.json());
 
-// Example Star Wars data
-var characters = [
+// Blog posts for Hatchway 
+var posts = [
     {
-        routeName: "yoda",
-        name: "Yoda",
-        role: "Jedi Master",
-        age: 900
+        id: 1,
+        author: "Tom",
+        authorId: 1,
+        likes: 960,
+        popularity: 0.13,
+        reads: 50361,
+        tags: ["tech", "health"]
     },
     {
-        routeName: "darthvader",
-        name: "Darth Vader",
-        role: "Sith Lord",
-        age: 45
+        id: 2,
+        author: "Janet",
+        authorId: 2,
+        likes: 1040,
+        popularity: 0.11,
+        reads: 71357,
+        tags: ["fitness", "empowerment"]
+    },
+    {
+        id: 3,
+        author: "Jake",
+        authorId: 3,
+        likes: 979,
+        popularity: 0.15,
+        reads: 43287,
+        tags: ["video games", "movies"]
     }
 ]
 
 // Routes
 // Basic route that sends the user first to AJAX Page
 blog.get("/", function(req, res) {
-    res.sendFile(path.join("view.html"));
+    res.sendFile(path.join(__dirname, "view.html"));
 });
 
 blog.get("/add", function (req, res) {
-    res.sendFile(path.join("add.html"));
+    res.sendFile(path.join(__dirname, "add.html"));
 });
 
 // Displays all characters
-blog.get("/api/characters", function(req, res) {
-    return res.json(characters);
+blog.get("/api/posts", function(req, res) {
+    return res.json(posts);
 });
 
 // Displays a single character, or returns false
-blog.get("/api/characters/:character", function(req, res) {
-    var chosen = req.params.character;
+blog.get("/api/posts/:post", function(req, res) {
+    var chosen = req.params.post;
 
     console.log(chosen);
 
-    for (var i = 0; i < characters.length; i++) {
-        if (chosen === characters[i].routeName) {
-            return res.json(characters[i]);
+    for (var i = 0; i < posts.length; i++) {
+        if (chosen === posts[i].routeName) {
+            return res.json(posts[i]);
         }
     }
     return res.json(false);
 });
 
 // Create new characters - takes in json input
-blog.post("/api/characters", function(req, res) {
+blog.post("/api/posts", function(req, res) {
     // req.body hosts is equal to the json post sent from the user
     // this works because of our body parsing middleware
-    var newCharacter = req.body;
+    var newPost = req.body;
 
     // using a RegEx Pattern to remove spaces from new Character
-    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+    newPost.routeName = newPost.name.replace(/\s+/g, "").toLowerCase();
 
-    console.log(newCharacter);
+    console.log(newPost);
 
-    characters.push(newCharacter);
+    characters.push(newPost);
 
-    res.json(newCharacter);
-});
-
-// Starts the server to begin listening 
-blog.listen(PORT, function() {
-    console.log("App listening to PORT " + PORT);
+    res.json(newPost);
 });
 
 // Starts the server to begin listening

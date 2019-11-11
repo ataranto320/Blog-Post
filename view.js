@@ -1,20 +1,24 @@
 $("#search-btn").on("click", function() {
-    var searchedCharacter = $("character-search").val().trim();
+    var searchedPost = $("#post-search").val().trim();
 
     // Using a RegEx Pattern to remove spaces from searchedCharacter
-    searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+    searchedPost = searchedPost.replace(/\s+/g, "").toLowerCase();
 
-    $.get("/api/charcters" + searchedCharacter, function(data) {
+    $.get("/api/posts" + searchedPost, function(data) {
         console.log(data);
         if (data) {
-            $("#stats").show();
-            $("#name").text(data.name);
-            $("role").text(data.role);
-            $("#age").text(data.age);
+            $("#info").show();
+            $("#author").text(data.author);
+            $("#id").text(data.id);
+            $("#authorid").text(data.authorid);
+            $("#likes").text(data.likes);
+            $("#pop").text(data.popularity);
+            $("#reads").text(data.reads);
+            $("#tags").text(data.tags);
         } else {
-            $("#name").text(
+            $("#author").text(
                 "No Results.");
-                $("stats").hide();
+                $("info").hide();
         }
     });
 });

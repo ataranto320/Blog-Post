@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog Hatchways</title>
+    <title>Author Blog </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -14,9 +14,9 @@
 
     <div class="container">
         <div class="jumbotron">
-            <h1>Blog for Hatchways</h1>
+            <h1>Author Blog</h1>
             <hr>
-            <a href="/"><button class=btn btn-danger btn-lg"><span class="fa fa-eye"></span>View Characters</button></a>
+            <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>View Authors</button></a>
         </div>
 
         <div class="row">
@@ -26,25 +26,45 @@
                 <div class="card">
 
                     <div class="card-header">
-                        <h3><strong>Add Characters</strong></h3>
+                        <h3><strong>Add Author</strong></h3>
                     </div>
 
                     <div class="card-body">
                         <form method="POST" role="form">
 
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="role">
+                                <label for="id">ID</label>
+                                <input type="text" class="form-control" id="id">
                             </div>
 
                             <div class="form-group">
-                                <label for="role">Role</label>
-                                <input type="text" class="form-control" id="role">
+                                <label for="name">Author</label>
+                                <input type="text" class="form-control" id="name">
                             </div>
 
                             <div class="form-group">
-                                <label for="age">Age</label>
-                                <input type="text" class="form-control" id="age">
+                                <label for="authorid">Author ID</label>
+                                <input type="text" class="form-control" id="authorid">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="likes">Likes</label>
+                                <input type="text" class="form-control" id="likes">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pop">Popularity</label>
+                                <input type="text" class="form-control" id="pop">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reads">Reads</label>
+                                <input type="text" class="form-control" id="reads">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tags">Tags</label>
+                                <input type="text" class="form-control" id="tags">
                             </div>
 
                         </form>
@@ -52,7 +72,7 @@
                         <br>
 
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span>Add to the Force</button>
+                            <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span>Add to the Blog</button>
                         </div>
 
                     </div>

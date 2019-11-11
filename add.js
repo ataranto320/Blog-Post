@@ -1,13 +1,17 @@
 $("#add-btn").on("click", function(event) {
     event.preventDefault();
-    var newCharacter = {
-        name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim()
+    var newPosts = {
+        id: $("#id").val().trim(),
+        author: $("#author").val().trim(),
+        auhtorid: $("#authorid").val().trim(),
+        likes: $("#likes").val().trim(),
+        popularity: $("#pop").val().trim(),
+        reads: $("#reads").val().trim(),
+        tags: $("#tags").val().trim(),
     };
 
-    $.post("/api/characters", newCharacter).then(function(data) {
+    $.post("/api/posts", newPosts).then(function(data) {
         console.log("add.html", data);
-        alert("Adding character");
+        alert("Adding post");
     });
 });
