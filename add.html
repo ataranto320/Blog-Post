@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Author Blog </title>
+    <title>Author Blog</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -81,14 +83,13 @@
         </div>
     </div>
     
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
     <!-- <script type="text/javascript" src="add.js"></script> -->
 
     <script text="type/javascript">
         $("#add-btn").on("click", function(event) {
     event.preventDefault();
-    var newPosts = {
+    var newPost = {
         id: $("#id").val().trim(),
         author: $("#author").val().trim(),
         auhtorid: $("#authorid").val().trim(),
@@ -98,7 +99,7 @@
         tags: $("#tags").val().trim()
     };
 
-    $.post("/api/posts", newPosts)
+    $.post("/api/posts", newPost)
         .then(function(data) {
         console.log("add.html", data);
         alert("Adding post");

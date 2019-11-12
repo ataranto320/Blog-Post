@@ -39,7 +39,7 @@ var posts = [
         reads: 43287,
         tags: ["video games", "movies"]
     }
-]
+];
 
 // Routes
 // Basic route that sends the user first to AJAX Page
